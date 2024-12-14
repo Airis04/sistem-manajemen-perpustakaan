@@ -7,12 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Buku extends Model
 {
     protected $fillable = [
-        'judul',
+        'judul_buku',
         'penulis',
         'isbn',
-        'penerbit',
+        'id_penerbit',
         'tahun_terbit',
     ];
+
+    public function penerbit()
+    {
+        return $this->belongsTo(Penerbit::class, 'id_penerbit');
+    }
 
     public function peminjaman()
     {

@@ -1,6 +1,7 @@
 @include('components.dashboard.head')
 
 <body>
+    @include('sweetalert::alert')
     @include('components.dashboard.top-bar')
     <div id="wrapper">
         @include('components.dashboard.side-bar')
@@ -9,7 +10,9 @@
             <div class="content">
 
                 <div class="container-fluid">
-                    @yield('content')
+                    <div class="mt-3">
+                        @yield('content')
+                    </div>
                 </div>
 
             </div>

@@ -18,7 +18,7 @@
 
                 <div class="d-flex justify-content-between mb-3">
                     <h4 class="header-title">{{ $title }}</h4>
-                    <a href="{{ route('dashboard.buku.create') }}" class="btn btn-primary">Tambah Buku</a>
+                    <a href="{{ route('dashboard.penerbit.create') }}" class="btn btn-primary">Tambah Penerbit</a>
                 </div>
 
                 <table id="datatable" class="table table-bordered  dt-responsive nowrap"
@@ -26,28 +26,20 @@
 
                     <thead>
                         <tr>
-                            <th>Judul Buku</th>
-                            <th>ISBN</th>
-                            <th>Penulis</th>
-                            <th>Penerbit</th>
-                            <th>Tahun Terbit</th>
+                            <th>Nama Penerbit</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
 
 
                     <tbody>
-                        @foreach ($buku as $item)
+                        @foreach ($penerbit as $item)
                             <tr>
-                                <td>{{ $item->judul_buku }}</td>
-                                <td>{{ $item->isbn }}</td>
-                                <td>{{ $item->penulis }}</td>
-                                <td>{{ $item->penerbit->nama_penerbit }}</td>
-                                <td>{{ $item->tahun_terbit }}</td>
+                                <td>{{ $item->nama_penerbit }}</td>
                                 <td>
-                                    <a href="{{ route('dashboard.buku.edit', $item->id) }}"
+                                    <a href="{{ route('dashboard.penerbit.edit', $item->id) }}"
                                         class="btn btn-primary btn-sm">Edit</a>
-                                    <form action="{{ route('dashboard.buku.destroy', $item->id) }}" method="POST"
+                                    <form action="{{ route('dashboard.penerbit.destroy', $item->id) }}" method="POST"
                                         style="display:inline;">
                                         @csrf
                                         @method('DELETE')

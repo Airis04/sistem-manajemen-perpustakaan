@@ -23,6 +23,22 @@
                 </li>
 
                 <li>
+                    <a href="{{ route('dashboard.penerbit.index') }}">
+                        <i class="fe-briefcase"></i>
+                        <span class="badge badge-success badge-pill float-right"></span>
+                        <span> Penerbit </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('dashboard.kategori.index') }}">
+                        <i class="fe-tag"></i>
+                        <span class="badge badge-success badge-pill float-right"></span>
+                        <span> Kategori </span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="{{ route('dashboard.buku.index') }}">
                         <i class="fe-book"></i>
                         <span class="badge badge-success badge-pill float-right"></span>
