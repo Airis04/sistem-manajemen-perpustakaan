@@ -10,12 +10,16 @@ class AuthController extends Controller
 {
     public function login()
     {
-        return view('pages.auth.login');
+        return view('pages.auth.login', [
+            'title' => 'Login',
+        ]);
     }
 
     public function register()
     {
-        return view('pages.auth.register');
+        return view('pages.auth.register', [
+            'title' => 'Register',
+        ]);
     }
 
     public function authenticate(Request $request)
@@ -29,10 +33,11 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('anggota');
+            return redirect()->intended(route('dashboard.index'));
         }
 
         toast('Email atau password salah', 'error');
+
         return back();
     }
 
@@ -46,7 +51,6 @@ class AuthController extends Controller
             'no_telpon' => 'required|max:20',
             'alamat' => 'required',
         ]);
-
 
         Anggota::create($data);
 

@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 class Anggota extends Authenticatable
 {
     use HasFactory, Notifiable;
+
     protected $guarded = ['id'];
 
     public function peminjaman()
@@ -25,11 +26,6 @@ class Anggota extends Authenticatable
         'password',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
     protected function casts(): array
     {
         return [

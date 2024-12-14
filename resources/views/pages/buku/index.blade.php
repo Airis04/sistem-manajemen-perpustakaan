@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.dashboard')
 
 @push('styles')
     <link href="/assets/libs/footable/footable.core.min.css" rel="stylesheet" type="text/css" />
@@ -42,7 +42,8 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <img src="https://assets.lulu.com/cover_thumbs/z/m/zmmvvj2-ebook-shortedge-384.jpg" class="card-img-top" alt="Belajar Laravel">
+                            <img src="https://assets.lulu.com/cover_thumbs/z/m/zmmvvj2-ebook-shortedge-384.jpg"
+                                class="card-img-top" alt="Belajar Laravel">
                             <div class="card-body">
                                 <h5 class="card-title">Belajar Laravel</h5>
                                 <p class="card-text">Penulis: John Doe</p>
@@ -64,7 +65,8 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <img src="https://example.com/path/to/vuejs-book.jpg" class="card-img-top" alt="Web Development with Vue.js">
+                            <img src="https://example.com/path/to/vuejs-book.jpg" class="card-img-top"
+                                alt="Web Development with Vue.js">
                             <div class="card-body">
                                 <h5 class="card-title">Web Development with Vue.js</h5>
                                 <p class="card-text">Penulis: Michael Brown</p>
@@ -75,7 +77,8 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <img src="https://example.com/path/to/javascript-book.jpg" class="card-img-top" alt="Introduction to JavaScript">
+                            <img src="https://example.com/path/to/javascript-book.jpg" class="card-img-top"
+                                alt="Introduction to JavaScript">
                             <div class="card-body">
                                 <h5 class="card-title">Introduction to JavaScript</h5>
                                 <p class="card-text">Penulis: Emily White</p>

@@ -62,6 +62,11 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Admin::class),
+        ],
+
+        'anggota' => [
+            'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\Anggota::class),
         ],
 

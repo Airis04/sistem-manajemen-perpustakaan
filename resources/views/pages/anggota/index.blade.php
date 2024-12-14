@@ -1,11 +1,10 @@
-@extends('layout.main')
+@extends('layout.dashboard')
 
 @push('styles')
     <link href="/assets/libs/footable/footable.core.min.css" rel="stylesheet" type="text/css" />
 @endpush
 
 @push('scripts')
-    <!-- Footable js -->
     <script src="/assets/libs/footable/footable.all.min.js"></script>
     <script src="/assets/js/pages/foo-tables.init.js"></script>
 @endpush
@@ -14,11 +13,7 @@
     <div class="row">
         <div class="col-12">
             <div class="card-box">
-                <h4 class="header-title">Filtering</h4>
-                <p class="sub-header">
-                    include filtering in your FooTable.
-                </p>
-
+                <h4 class="header-title">Data Anggota</h4>
                 <div class="mb-3">
                     <div class="row">
                         <div class="col-12 text-sm-center form-inline">

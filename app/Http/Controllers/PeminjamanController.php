@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Peminjaman;
 
 class PeminjamanController extends Controller
 {
     public function index()
     {
-        return view('pages.anggota.peminjaman');
+        return view('pages.peminjaman.index', [
+            'title' => 'Data Peminjaman',
+            'peminjaman' => Peminjaman::latest()->get(),
+        ]);
     }
 }

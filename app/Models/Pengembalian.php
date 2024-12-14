@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pengembalian extends Model
 {
     protected $fillable = [
-        'peminjaman_id', 'tanggal_kembali'
+        'peminjaman_id', 'tanggal_kembali',
     ];
 
     public function peminjaman()

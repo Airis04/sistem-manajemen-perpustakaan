@@ -7,29 +7,25 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PengembalianController;
-use App\Models\Anggota;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', [LandingController::class, 'index'])->name('home');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'authenticate'])->name('login.authenticate');
 
-Route::post('/login', [AuthController::class, 'authenticate']);
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'store'])->name('register.store');
 
-Route::get('/register', [AuthController::class, 'register']);
+Route::as('dashboard.')->prefix('dashboard')->group(function () {
 
-Route::post('/register', [AuthController::class, 'store']);
+    Route::get('/', [DashboardController::class, 'index'])->name('index');
 
-Route::resource('anggota', AnggotaController::class);
+    Route::resource('anggota', AnggotaController::class);
 
-Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
+    Route::resource('/buku', BukuController::class);
 
-Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+    Route::resource('/peminjaman', PeminjamanController::class);
 
-Route::get('/pengembalian', [PengembalianController::class, 'index'])->name('pengembalian.index');
-
-Route::get('/landing', function () {
-    return view('landing.index');
+    Route::resource('/pengembalian', PengembalianController::class);
 });
-Route::get('/landing', [LandingController::class, 'index'])->name('landing.index');

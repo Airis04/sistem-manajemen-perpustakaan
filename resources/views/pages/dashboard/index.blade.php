@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.dashboard')
 
 @section('content')
     <!-- start page title -->
@@ -101,7 +101,8 @@
                 <div class="text-center">
                     <h5 class="font-weight-normal text-muted">You have to pay</h5>
                     <h3 class="mb-3"><i class="mdi mdi-arrow-up-bold-hexagon-outline text-success"></i> 25643
-                        <small>USD</small></h3>
+                        <small>USD</small>
+                    </h3>
                 </div>
 
                 <div class="chart-container" dir="ltr">
@@ -117,7 +118,8 @@
                 <div class="text-center">
                     <h5 class="font-weight-normal text-muted">You have to pay</h5>
                     <h3 class="mb-3"><i class="mdi mdi-arrow-down-bold-hexagon-outline text-danger"></i> 5623
-                        <small>USD</small></h3>
+                        <small>USD</small>
+                    </h3>
                 </div>
 
                 <div class="chart-container" dir="ltr">
@@ -133,7 +135,8 @@
                 <div class="text-center">
                     <h5 class="font-weight-normal text-muted">You have to pay</h5>
                     <h3 class="mb-3"><i class="mdi mdi-arrow-up-bold-hexagon-outline text-success"></i> 12548
-                        <small>USD</small></h3>
+                        <small>USD</small>
+                    </h3>
                 </div>
 
                 <div class="chart-container" dir="ltr">
