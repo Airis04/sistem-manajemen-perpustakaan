@@ -38,7 +38,15 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'admin',
+        ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin',
+        ],
+        'anggota' => [
+            'driver' => 'session',
+            'provider' => 'anggota',
         ],
     ],
 
@@ -60,7 +68,7 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'admin' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\Admin::class),
         ],

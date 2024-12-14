@@ -37,6 +37,20 @@
                     </div>
                 </div>
 
+                <div class="form-group row">
+                    <div class="col-12">
+                        <label for="role">Role</label>
+                        <select class="form-control" name="role" id="role" required>
+                            <option value="">Pilih Role</option>
+                            <option value="admin">Admin</option>
+                            <option value="anggota">Anggota</option>
+                        </select>
+                        @error('role')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
                 <div class="form-group row text-center mt-2">
                     <div class="col-12">
                         <button class="btn btn-md btn-block btn-primary waves-effect waves-light" type="submit">

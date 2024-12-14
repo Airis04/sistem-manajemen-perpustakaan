@@ -18,6 +18,7 @@
 
                 <div class="d-flex justify-content-between mb-3">
                     <h4 class="header-title">{{ $title }}</h4>
+                    <a href="{{ route('dashboard.kelas.create') }}" class="btn btn-primary">Tambah Kelas</a>
                 </div>
 
                 <table id="datatable" class="table table-bordered  dt-responsive nowrap"
@@ -25,26 +26,20 @@
 
                     <thead>
                         <tr>
-                            <th>Nama Anggota</th>
-                            <th>Nama Buku</th>
-                            <th>Tanggal Pinjam</th>
-                            <th>Tanggal Kembali</th>
+                            <th>Nama Kelas</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
 
 
                     <tbody>
-                        @foreach ($peminjaman as $item)
+                        @foreach ($kelas as $item)
                             <tr>
-                                <td>{{ $item->anggota->nama }}</td>
-                                <td>{{ $item->buku->judul_buku }}</td>
-                                <td>{{ $item->tanggal_pinjam }}</td>
-                                <td>{{ $item->tanggal_kembali }}</td>
+                                <td>{{ $item->kelas }}</td>
                                 <td>
-                                    <a href="{{ route('dashboard.peminjaman.edit', $item->id) }}"
+                                    <a href="{{ route('dashboard.kelas.edit', $item->id) }}"
                                         class="btn btn-primary btn-sm">Edit</a>
-                                    <form action="{{ route('dashboard.peminjaman.destroy', $item->id) }}" method="POST"
+                                    <form action="{{ route('dashboard.kelas.destroy', $item->id) }}" method="POST"
                                         style="display:inline;">
                                         @csrf
                                         @method('DELETE')

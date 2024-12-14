@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anggota;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
 
 class AnggotaController extends Controller
@@ -11,32 +12,81 @@ class AnggotaController extends Controller
     {
         return view('pages.anggota.index', [
             'title' => 'Data Anggota',
-            'anggota' => Anggota::latest()->get(),
+            'anggota' => Anggota::with('kelas')->latest()->get(),
         ]);
     }
 
     public function create()
     {
-        //
+        return view('pages.anggota.create', [
+            'title' => 'Tambah Anggota',
+            'kelas' => Kelas::latest()->get(),
+        ]);
     }
 
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'id_kelas' => 'nullable|exists:kelas,id',
+            'nis' => 'required|digits:10|unique:anggotas,nis',
+            'nama' => 'required|string',
+            'email' => 'required|email|unique:anggotas,email',
+            'password' => 'required|string|min:8',
+            'no_telpon' => 'required|string|max:20',
+            'alamat' => 'required|string',
+        ]);
+
+        Anggota::create($data);
+
+        toast('Anggota berhasil ditambahkan', 'success');
+
+        return redirect()->route('dashboard.anggota.index');
     }
 
-    public function edit(Anggota $anggota)
+    public function edit($id)
     {
-        //
+        $anggota = Anggota::findOrFail($id);
+
+        return view('pages.anggota.edit', [
+            'title' => 'Edit Anggota',
+            'anggota' => $anggota,
+            'kelas' => Kelas::latest()->get(),
+        ]);
     }
 
-    public function update(Request $request, Anggota $anggota)
+    public function update(Request $request, $id)
     {
-        //
+        $anggota = Anggota::findOrFail($id);
+        $data = $request->validate([
+            'id_kelas' => 'nullable|exists:kelas,id',
+            'nis' => 'required|digits:10|unique:anggotas,nis,'.$anggota->id,
+            'nama' => 'required|string',
+            'email' => 'required|email|unique:anggotas,email,'.$anggota->id,
+            'password' => 'nullable|string|min:8',
+            'no_telpon' => 'required|string|max:20',
+            'alamat' => 'required|string',
+        ]);
+
+        if ($request->password) {
+            $data['password'] = bcrypt($request->password);
+        } else {
+            unset($data['password']);
+        }
+
+        $anggota->update($data);
+
+        toast('Anggota berhasil diubah', 'success');
+
+        return redirect()->route('dashboard.anggota.index');
     }
 
-    public function destroy(Anggota $anggota)
+    public function destroy($id)
     {
-        //
+        $anggota = Anggota::findOrFail($id);
+        $anggota->delete();
+
+        toast('Anggota berhasil dihapus', 'success');
+
+        return redirect()->route('dashboard.anggota.index');
     }
 }

@@ -27,13 +27,22 @@ class AuthController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
+            'role' => 'required|in:anggota,admin',
         ]);
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+        if ($request->role == 'admin') {
+            if (Auth::guard('admin')->attempt($credentials)) {
+                $request->session()->regenerate();
 
-            return redirect()->intended(route('dashboard.index'));
+                return redirect()->intended(route('dashboard.index'));
+            }
+        } else {
+            if (Auth::guard('anggota')->attempt($credentials)) {
+                $request->session()->regenerate();
+
+                return redirect()->intended(route('dashboard.index'));
+            }
         }
 
         toast('Email atau password salah', 'error');

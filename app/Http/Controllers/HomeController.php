@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-class LandingController extends Controller
+class HomeController extends Controller
 {
     public function index()
     {
-        return view('pages.landing.index', [
+        return view('pages.home.index', [
             'title' => 'Home',
         ]);
     }

@@ -10,7 +10,7 @@ class PeminjamanController extends Controller
     {
         return view('pages.peminjaman.index', [
             'title' => 'Data Peminjaman',
-            'peminjaman' => Peminjaman::latest()->get(),
+            'peminjaman' => Peminjaman::with('buku', 'anggota')->latest()->get(),
         ]);
     }
 }
