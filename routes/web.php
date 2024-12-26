@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\AppBukuController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\DashboardController;
@@ -12,6 +13,10 @@ use App\Http\Controllers\PenerbitController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/kontak', [HomeController::class, 'contact'])->name('contact');
+
+Route::get('/buku', [AppBukuController::class, 'index'])->name('buku.index');
+Route::get('/buku/{buku}', [AppBukuController::class, 'show'])->name('buku.show');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -21,7 +26,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [AuthController::class, 'store'])->name('register.store');
 });
 
-Route::as('dashboard.')->prefix('dashboard')->middleware('auth:admin,anggota')->group(function () {
+Route::middleware('auth:admin,anggota')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 

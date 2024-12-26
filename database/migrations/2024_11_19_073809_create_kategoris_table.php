@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('kategoris', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('parent_id')->nullable();
             $table->string('nama_kategori');
             $table->timestamps();
         });

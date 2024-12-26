@@ -1,4 +1,4 @@
-@extends('layout.auth')
+@extends('auth.layouts.main')
 
 @section('content')
     <div class="account-box">

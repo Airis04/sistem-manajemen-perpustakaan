@@ -65,4 +65,16 @@ class AuthController extends Controller
 
         return redirect()->route('login');
     }
+
+    public function logout(Request $request)
+    {
+        Auth::guard('admin')->logout();
+        Auth::guard('anggota')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
+    }
 }

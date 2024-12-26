@@ -32,18 +32,10 @@
 
             </div>
         </li>
-
-        <li class="dropdown notification-list">
-            <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
-                <i class="fe-settings noti-icon"></i>
-            </a>
-        </li>
-
-
     </ul>
 
     <div class="logo-box">
-        <a href="/index.html" class="logo text-center">
+        <a href="{{ route('dashboard.index') }}" class="logo text-center">
             <span class="logo-lg">
                 <img src="/assets/dashboard/images/logo-light.png" alt="" height="25">
             </span>

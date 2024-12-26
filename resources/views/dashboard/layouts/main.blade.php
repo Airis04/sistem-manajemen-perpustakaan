@@ -2,10 +2,10 @@
 
 <body>
     @include('sweetalert::alert')
-    @include('dashboard.components.top-bar')
+    @include('dashboard.components.topbar')
 
     <div id="wrapper">
-        @include('dashboard.components.side-bar')
+        @include('dashboard.components.sidebar')
 
         <div class="content-page">
             <div class="content">
