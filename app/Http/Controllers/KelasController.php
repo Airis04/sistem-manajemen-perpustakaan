@@ -9,7 +9,7 @@ class KelasController extends Controller
 {
     public function index()
     {
-        return view('pages.kelas.index', [
+        return view('dashboard.pages.kelas.index', [
             'title' => 'Data Kelas',
             'kelas' => Kelas::latest()->get(),
         ]);
@@ -17,7 +17,7 @@ class KelasController extends Controller
 
     public function create()
     {
-        return view('pages.kelas.create', [
+        return view('dashboard.pages.kelas.create', [
             'title' => 'Tambah Kelas',
         ]);
     }
@@ -39,7 +39,7 @@ class KelasController extends Controller
     {
         $kelas = Kelas::find($id);
 
-        return view('pages.kelas.edit', [
+        return view('dashboard.pages.kelas.edit', [
             'title' => 'Edit Kelas',
             'kelas' => $kelas,
         ]);

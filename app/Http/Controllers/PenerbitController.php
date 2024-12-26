@@ -9,7 +9,7 @@ class PenerbitController extends Controller
 {
     public function index()
     {
-        return view('pages.penerbit.index', [
+        return view('dashboard.pages.penerbit.index', [
             'title' => 'Data Penerbit',
             'penerbit' => Penerbit::latest()->get(),
         ]);
@@ -17,7 +17,7 @@ class PenerbitController extends Controller
 
     public function create()
     {
-        return view('pages.penerbit.create', [
+        return view('dashboard.pages.penerbit.create', [
             'title' => 'Tambah Penerbit',
         ]);
     }
@@ -37,7 +37,7 @@ class PenerbitController extends Controller
 
     public function edit(Penerbit $penerbit)
     {
-        return view('pages.penerbit.edit', [
+        return view('dashboard.pages.penerbit.edit', [
             'title' => 'Edit Penerbit',
             'penerbit' => $penerbit,
         ]);

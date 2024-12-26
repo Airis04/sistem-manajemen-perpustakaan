@@ -22,6 +22,10 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::as('dashboard.')->prefix('dashboard')->middleware('auth:admin,anggota')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
+
+Route::as('dashboard.')->prefix('dashboard')->middleware('auth:admin')->group(function () {
 
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 

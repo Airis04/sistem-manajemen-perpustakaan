@@ -10,7 +10,7 @@ class AnggotaController extends Controller
 {
     public function index()
     {
-        return view('pages.anggota.index', [
+        return view('dashboard.pages.anggota.index', [
             'title' => 'Data Anggota',
             'anggota' => Anggota::with('kelas')->latest()->get(),
         ]);
@@ -18,7 +18,7 @@ class AnggotaController extends Controller
 
     public function create()
     {
-        return view('pages.anggota.create', [
+        return view('dashboard.pages.anggota.create', [
             'title' => 'Tambah Anggota',
             'kelas' => Kelas::latest()->get(),
         ]);
@@ -47,7 +47,7 @@ class AnggotaController extends Controller
     {
         $anggota = Anggota::findOrFail($id);
 
-        return view('pages.anggota.edit', [
+        return view('dashboard.pages.anggota.edit', [
             'title' => 'Edit Anggota',
             'anggota' => $anggota,
             'kelas' => Kelas::latest()->get(),

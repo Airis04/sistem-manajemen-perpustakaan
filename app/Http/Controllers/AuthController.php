@@ -10,14 +10,14 @@ class AuthController extends Controller
 {
     public function login()
     {
-        return view('pages.auth.login', [
+        return view('auth.pages.login', [
             'title' => 'Login',
         ]);
     }
 
     public function register()
     {
-        return view('pages.auth.register', [
+        return view('auth.pages.register', [
             'title' => 'Register',
         ]);
     }

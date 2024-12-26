@@ -9,7 +9,7 @@ class KategoriController extends Controller
 {
     public function index()
     {
-        return view('pages.kategori.index', [
+        return view('dashboard.pages.kategori.index', [
             'title' => 'Data Kategori',
             'kategori' => Kategori::latest()->get(),
         ]);
@@ -17,7 +17,7 @@ class KategoriController extends Controller
 
     public function create()
     {
-        return view('pages.kategori.create', [
+        return view('dashboard.pages.kategori.create', [
             'title' => 'Tambah kategori',
         ]);
     }
@@ -37,7 +37,7 @@ class KategoriController extends Controller
 
     public function edit(Kategori $kategori)
     {
-        return view('pages.kategori.edit', [
+        return view('dashboard.pages.kategori.edit', [
             'title' => 'Edit kategori',
             'kategori' => $kategori,
         ]);

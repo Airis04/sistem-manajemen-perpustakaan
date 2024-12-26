@@ -10,7 +10,7 @@ class BukuController extends Controller
 {
     public function index()
     {
-        return view('pages.buku.index', [
+        return view('dashboard.pages.buku.index', [
             'title' => 'Data Buku',
             'buku' => Buku::with('penerbit')->latest()->get(),
         ]);
@@ -18,7 +18,7 @@ class BukuController extends Controller
 
     public function create()
     {
-        return view('pages.buku.create', [
+        return view('dashboard.pages.buku.create', [
             'title' => 'Tambah Buku',
             'penerbits' => Penerbit::latest()->get(),
         ]);
@@ -43,7 +43,7 @@ class BukuController extends Controller
 
     public function edit(Buku $buku)
     {
-        return view('pages.buku.edit', [
+        return view('dashboard.pages.buku.edit', [
             'title' => 'Edit Buku',
             'buku' => $buku,
             'penerbits' => Penerbit::latest()->get(),
