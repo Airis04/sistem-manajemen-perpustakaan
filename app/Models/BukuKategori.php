@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class BukuKategori extends Model
 {
-    protected $fillable = [
-        'buku_id', 'kategori_id',
-    ];
+    use HasFactory;
+
+    protected $table = 'buku_kategori';
+
+    protected $guarded = ['id'];
 }

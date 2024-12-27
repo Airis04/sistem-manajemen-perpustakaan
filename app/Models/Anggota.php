@@ -10,16 +10,18 @@ class Anggota extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    protected $table = 'anggota';
+
     protected $guarded = ['id'];
 
     public function peminjaman()
     {
-        return $this->hasMany(Peminjaman::class);
+        return $this->hasMany(Peminjaman::class, 'id_anggota');
     }
 
     public function kelas()
     {
-        return $this->belongsTo(Kelas::class);
+        return $this->belongsTo(Kelas::class, 'id_kelas');
     }
 
     protected $hidden = [

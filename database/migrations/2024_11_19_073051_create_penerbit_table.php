@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bukus', function (Blueprint $table) {
+        Schema::create('penerbit', function (Blueprint $table) {
             $table->id();
-            $table->string('judul_buku');
-            $table->string('penulis');
-            $table->char('isbn', 13)->unique();
-            $table->foreignId('id_penerbit')->constrained('penerbits');
-            $table->year('tahun_terbit');
+            $table->string('nama_penerbit');
             $table->timestamps();
         });
     }
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bukus');
+        Schema::dropIfExists('penerbit');
     }
 };

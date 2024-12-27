@@ -2,17 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Buku extends Model
 {
-    protected $fillable = [
-        'judul_buku',
-        'penulis',
-        'isbn',
-        'id_penerbit',
-        'tahun_terbit',
-    ];
+    use HasFactory;
+
+    protected $table = 'buku';
+
+    protected $guarded = ['id'];
 
     public function penerbit()
     {
@@ -21,11 +20,11 @@ class Buku extends Model
 
     public function peminjaman()
     {
-        return $this->hasMany(Peminjaman::class);
+        return $this->hasMany(Peminjaman::class, 'id_buku');
     }
 
     public function kategori()
     {
-        return $this->belongsToMany(Kategori::class, 'buku_kategori');
+        return $this->belongsToMany(Kategori::class, 'buku_kategori', 'id_buku', 'id_kategori');
     }
 }

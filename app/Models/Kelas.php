@@ -2,16 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Kelas extends Model
 {
-    protected $fillable = [
-        'kelas',
-    ];
+    use HasFactory;
+
+    protected $table = 'kelas';
+
+    protected $guarded = ['id'];
 
     public function anggota()
     {
-        return $this->hasMany(Anggota::class);
+        return $this->hasMany(Anggota::class, 'id_kelas');
     }
 }
