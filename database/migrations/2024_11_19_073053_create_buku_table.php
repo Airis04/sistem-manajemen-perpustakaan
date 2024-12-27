@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('judul_buku');
             $table->string('penulis');
+            $table->string('gambar');
+            $table->text('deskripsi')->nullable();
             $table->string('isbn', 25)->unique();
             $table->foreignId('id_penerbit')->constrained('penerbit')->onDelete('cascade');
             $table->year('tahun_terbit');

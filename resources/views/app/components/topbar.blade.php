@@ -16,10 +16,29 @@
                 </li>
             </ul>
             <ul class="list">
-                <li><i class="fa-light fa-user"></i>
-                    <a href="{{ route('login') }}">
-                        Masuk
-                    </a>
+                <li>
+                    @if (auth()->guard('anggota')->check())
+                        <div class="dropdown">
+                            <button class="btn btn-transparent dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa-light fa-user"></i>
+                                {{ auth()->guard('anggota')->user()->nama }}
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item text-dark" href="{{ route('history') }}">Riwayat</a></li>
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item text-dark">Keluar</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    @else
+                        <a href="{{ route('login') }}">
+                            Masuk
+                        </a>
+                    @endif
                 </li>
             </ul>
         </div>

@@ -4,6 +4,7 @@
 @include('app.components.head')
 
 <body>
+    @include('sweetalert::alert')
     <div class="cursor-follower"></div>
 
     @include('app.components.preloader')

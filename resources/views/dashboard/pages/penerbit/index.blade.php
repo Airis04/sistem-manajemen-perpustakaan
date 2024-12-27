@@ -7,8 +7,16 @@
 @endpush
 
 @push('scripts')
-    <script src="assets/libs/datatables/jquery.dataTables.min.js"></script>
-    <script src="assets/libs/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="/assets/dashboard/libs/datatables/jquery.dataTables.min.js"></script>
+    <script src="/assets/dashboard/libs/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#datatable").DataTable({
+                "order": []
+            });
+        });
+    </script>
 @endpush
 
 @section('content')

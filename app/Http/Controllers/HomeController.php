@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kategori;
+use App\Models\Buku;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -10,7 +11,7 @@ class HomeController extends Controller
     {
         return view('app.pages.home', [
             'title' => 'Beranda',
-            'categories' => Kategori::latest()->get(),
+            'books' => Buku::latest()->limit(4)->get(),
         ]);
     }
 
@@ -18,7 +19,19 @@ class HomeController extends Controller
     {
         return view('app.pages.contact', [
             'title' => 'Kontak',
-            'categories' => Kategori::latest()->get(),
+        ]);
+    }
+
+    public function history()
+    {
+        /**
+         * @var \App\Models\Anggota $user
+         */
+        $user = Auth::user();
+
+        return view('app.pages.history', [
+            'title' => 'Riwayat Peminjaman',
+            'bookings' => $user->peminjaman()->latest()->get(),
         ]);
     }
 }

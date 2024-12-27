@@ -33,15 +33,11 @@ class AuthController extends Controller
 
         if ($request->role == 'admin') {
             if (Auth::guard('admin')->attempt($credentials)) {
-                $request->session()->regenerate();
-
                 return redirect()->intended(route('dashboard.index'));
             }
         } else {
             if (Auth::guard('anggota')->attempt($credentials)) {
-                $request->session()->regenerate();
-
-                return redirect()->intended(route('dashboard.index'));
+                return redirect()->intended(route('home'));
             }
         }
 

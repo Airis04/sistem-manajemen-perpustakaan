@@ -22,7 +22,7 @@ class AccountSeeder extends Seeder
         Anggota::factory()->create([
             'nis' => '1234567890',
             'nama' => 'Arfan Pria Pamungkas',
-            'email' => 'admin@admin.com',
+            'email' => 'user@user.com',
             'password' => 'password',
             'no_telpon' => '081234567890',
             'alamat' => 'Jl. Jalan No. 123',
