@@ -6,7 +6,7 @@
 
             <div class="card-box table-responsive">
 
-                <form action="{{ route('dashboard.buku.store') }}" method="POST">
+                <form action="{{ route('dashboard.buku.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="judul_buku">Judul Buku</label>
@@ -31,6 +31,14 @@
                         <input type="text" class="form-control" id="isbn" name="isbn" value="{{ old('isbn') }}"
                             required>
                         @error('isbn')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gambar">Gambar</label>
+                        <input type="file" class="form-control" id="gambar" name="gambar" required>
+                        @error('gambar')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>

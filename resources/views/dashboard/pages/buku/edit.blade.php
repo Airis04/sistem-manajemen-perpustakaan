@@ -6,7 +6,7 @@
 
             <div class="card-box table-responsive">
 
-                <form action="{{ route('dashboard.buku.update', $buku->id) }}" method="POST">
+                <form action="{{ route('dashboard.buku.update', $buku->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -37,6 +37,22 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="preview_gambar">Preview Gambar</label>
+                        <div>
+                            <img id="preview_gambar" src="{{ asset('storage/' . $buku->gambar) }}" alt="Preview Gambar"
+                                style="max-width: 200px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gambar">Gambar</label>
+                        <input type="file" class="form-control" id="gambar" name="gambar">
+                        @error('gambar')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
                         <label for="id_penerbit">Penerbit</label>
                         <select class="form-control" id="id_penerbit" name="id_penerbit" required>
                             @foreach ($penerbits as $penerbit)
@@ -59,6 +75,8 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
+
+                    <p class="text-info">*Abaikan gambar jika tidak ingin mengubahnya</p>
 
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>

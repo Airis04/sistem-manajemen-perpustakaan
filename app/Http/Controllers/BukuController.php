@@ -30,10 +30,12 @@ class BukuController extends Controller
             'judul_buku' => 'required',
             'penulis' => 'required',
             'isbn' => 'required|max:13',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'id_penerbit' => 'required|exists:penerbits,id',
             'tahun_terbit' => 'required|date_format:Y',
         ]);
 
+        $data['gambar'] = $request->file('gambar')->store('images/books', 'public');
         Buku::create($data);
 
         toast('Data buku berhasil ditambahkan', 'success');
@@ -56,9 +58,14 @@ class BukuController extends Controller
             'judul_buku' => 'required',
             'penulis' => 'required',
             'isbn' => 'required|max:13',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'id_penerbit' => 'required|exists:penerbits,id',
             'tahun_terbit' => 'required|date_format:Y',
         ]);
+
+        if ($request->file('gambar')) {
+            $data['gambar'] = $request->file('gambar')->store('images/books', 'public');
+        }
 
         $buku->update($data);
 
