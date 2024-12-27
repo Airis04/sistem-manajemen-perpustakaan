@@ -5,13 +5,14 @@
         <div class="col-12">
             <div class="card-box table-responsive">
 
-                <form action="{{ route('dashboard.kategori.store') }}" method="POST">
+                <h5>Formulir Pengembalian</h5>
+                <form action="{{ route('dashboard.peminjaman.return', $peminjaman->id) }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="nama_kategori">Nama Kategori</label>
-                        <input type="text" class="form-control" id="nama_kategori" name="nama_kategori"
-                            value="{{ old('nama_kategori') }}" required>
-                        @error('nama_kategori')
+                        <label for="tanggal_kembali">Tanggal Kembali</label>
+                        <input type="date" class="form-control" id="tanggal_kembali" name="tanggal_kembali"
+                            value="{{ old('tanggal_kembali') }}" required>
+                        @error('tanggal_kembali')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>

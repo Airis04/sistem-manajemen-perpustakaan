@@ -36,7 +36,9 @@
                             <th>Nama Anggota</th>
                             <th>Nama Buku</th>
                             <th>Tanggal Pinjam</th>
+                            <th>Tanggal Kembali Seharusnya</th>
                             <th>Tanggal Kembali</th>
+                            <th>Denda</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -50,14 +52,26 @@
                                 <td>{{ $item->tanggal_pinjam }}</td>
                                 <td>{{ $item->tanggal_kembali }}</td>
                                 <td>
-                                    <a href="{{ route('dashboard.peminjaman.edit', $item->id) }}"
-                                        class="btn btn-primary btn-sm">Edit</a>
-                                    <form action="{{ route('dashboard.peminjaman.destroy', $item->id) }}" method="POST"
-                                        style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                                    </form>
+                                    @if ($item->pengembalian)
+                                        {{ $item->pengembalian->tanggal_kembali }}
+                                    @else
+                                        Belum dikembalikan
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item->pengembalian)
+                                        Rp{{ number_format($item->pengembalian->denda, 0, ',', '.') }}
+                                    @else
+                                        -
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item->pengembalian)
+                                        <span class="text-success">Buku sudah dikembalikan</span>
+                                    @else
+                                        <a href="{{ route('dashboard.peminjaman.show', $item->id) }}"
+                                            class="btn btn-primary btn-sm">Pengembalian</a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

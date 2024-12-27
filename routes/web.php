@@ -49,5 +49,7 @@ Route::as('dashboard.')->prefix('dashboard')->middleware('auth:admin')->group(fu
 
     Route::resource('/buku', BukuController::class);
 
-    Route::resource('/peminjaman', PeminjamanController::class);
+    Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+    Route::get('/peminjaman/{peminjaman}', [PeminjamanController::class, 'show'])->name('peminjaman.show');
+    Route::post('/peminjaman/{peminjaman}/return', [PeminjamanController::class, 'return'])->name('peminjaman.return');
 });
