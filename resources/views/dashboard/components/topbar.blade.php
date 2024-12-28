@@ -37,10 +37,10 @@
     <div class="logo-box">
         <a href="{{ route('dashboard.index') }}" class="logo text-center">
             <span class="logo-lg">
-                <img src="/assets/dashboard/images/logo-light.png" alt="" height="25">
+                <img src="/assets/logo/logo-full-transparent.png" alt="" height="25">
             </span>
             <span class="logo-sm">
-                <img src="/assets/dashboard/images/logo-sm.png" alt="" height="28">
+                <img src="/assets/logo/logo-full-transparent.png" alt="" height="28">
             </span>
         </a>
     </div>

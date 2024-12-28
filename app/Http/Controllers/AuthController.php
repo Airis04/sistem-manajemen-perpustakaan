@@ -31,14 +31,17 @@ class AuthController extends Controller
         ]);
         $credentials = $request->only('email', 'password');
 
-        if ($request->role == 'admin') {
-            if (Auth::guard('admin')->attempt($credentials)) {
-                return redirect()->intended(route('dashboard.index'));
-            }
-        } else {
-            if (Auth::guard('anggota')->attempt($credentials)) {
-                return redirect()->intended(route('home'));
-            }
+        switch ($request->role) {
+            case 'admin':
+                if (Auth::guard('admin')->attempt($credentials)) {
+                    return redirect()->intended(route('dashboard.index'));
+                }
+                break;
+            case 'anggota':
+                if (Auth::guard('anggota')->attempt($credentials)) {
+                    return redirect()->intended(route('home'));
+                }
+                break;
         }
 
         toast('Email atau password salah', 'error');

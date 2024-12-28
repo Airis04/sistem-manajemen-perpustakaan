@@ -7,7 +7,8 @@
                         <div class="header-left">
                             <div class="logo">
                                 <a href="{{ route('home') }}" class="header-logo">
-                                    <img src="/assets/app/img/logo/white-logo.svg" alt="logo-img">
+                                    <img src="/assets/logo/logo-full-transparent.png" alt="logo-img" class="img-fluid"
+                                        style="max-width: 180px;">
                                 </a>
                             </div>
                             <div class="mean__menu-wrapper">

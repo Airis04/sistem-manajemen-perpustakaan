@@ -57,7 +57,7 @@
                     <div class="single-footer-widget">
                         <div class="widget-head">
                             <a href="{{ route('home') }}">
-                                <img src="/assets/app/img/logo/white-logo.svg" alt="logo-img">
+                                <img src="/assets/logo/logo-full-transparent.png" alt="logo-img" class="img-fluid">
                             </a>
                         </div>
                         <div class="footer-content">

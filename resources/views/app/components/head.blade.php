@@ -7,7 +7,8 @@
     <!-- ======== Page title ============ -->
     <title>{{ $title ?? '' }} - {{ config('app.name') }}</title>
     <!--<< Favcion >>-->
-    <link rel="shortcut icon" href="/assets/app/img/favicon.png">
+    <link rel="shortcut icon" href="/assets/logo/logo-transparent.png">
+
     <!--<< Bootstrap min.css >>-->
     <link rel="stylesheet" href="/assets/app/css/bootstrap.min.css">
     <!--<< All Min Css >>-->
