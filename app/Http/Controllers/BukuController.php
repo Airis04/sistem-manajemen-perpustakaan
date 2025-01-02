@@ -31,7 +31,7 @@ class BukuController extends Controller
             'penulis' => 'required',
             'isbn' => 'required|max:13',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'id_penerbit' => 'required|exists:penerbits,id',
+            'id_penerbit' => 'required|exists:penerbit,id',
             'tahun_terbit' => 'required|date_format:Y',
         ]);
 

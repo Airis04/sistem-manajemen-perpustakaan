@@ -52,9 +52,9 @@ class AuthController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'nis' => 'required|unique:anggotas,nis|max:10',
+            'nis' => 'required|unique:anggota,nis|max:10',
             'nama' => 'required',
-            'email' => 'required|email|unique:anggotas,email',
+            'email' => 'required|email|unique:anggota,email',
             'password' => 'required',
             'no_telpon' => 'required|max:20',
             'alamat' => 'required',

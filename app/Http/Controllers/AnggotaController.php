@@ -28,9 +28,9 @@ class AnggotaController extends Controller
     {
         $data = $request->validate([
             'id_kelas' => 'nullable|exists:kelas,id',
-            'nis' => 'required|digits:10|unique:anggotas,nis',
+            'nis' => 'required|digits:10|unique:anggota,nis',
             'nama' => 'required|string',
-            'email' => 'required|email|unique:anggotas,email',
+            'email' => 'required|email|unique:anggota,email',
             'password' => 'required|string|min:8',
             'no_telpon' => 'required|string|max:20',
             'alamat' => 'required|string',
@@ -59,9 +59,9 @@ class AnggotaController extends Controller
         $anggota = Anggota::findOrFail($id);
         $data = $request->validate([
             'id_kelas' => 'nullable|exists:kelas,id',
-            'nis' => 'required|digits:10|unique:anggotas,nis,'.$anggota->id,
+            'nis' => 'required|digits:10|unique:anggota,nis,' . $anggota->id,
             'nama' => 'required|string',
-            'email' => 'required|email|unique:anggotas,email,'.$anggota->id,
+            'email' => 'required|email|unique:anggota,email,' . $anggota->id,
             'password' => 'nullable|string|min:8',
             'no_telpon' => 'required|string|max:20',
             'alamat' => 'required|string',
