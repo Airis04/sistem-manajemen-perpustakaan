@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anggota;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,6 +20,7 @@ class AuthController extends Controller
     {
         return view('auth.pages.register', [
             'title' => 'Register',
+            'kelas' => Kelas::latest()->get(),
         ]);
     }
 
@@ -58,6 +60,7 @@ class AuthController extends Controller
             'password' => 'required',
             'no_telpon' => 'required|max:20',
             'alamat' => 'required',
+            'id_kelas' => 'required|exists:kelas,id',
         ]);
 
         Anggota::create($data);

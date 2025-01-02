@@ -103,6 +103,27 @@
                     </div>
                 </div>
 
+                <div class="form-group row">
+                    <div class="col-12">
+                        <label for="id_kelas">Kelas</label>
+                        <select class="form-control @error('id_kelas') is-invalid @enderror" id="id_kelas" name="id_kelas"
+                            required>
+                            <option value="">Pilih Kelas</option>
+                            @foreach ($kelas as $kelasItem)
+                                <option value="{{ $kelasItem->id }}"
+                                    {{ old('id_kelas') == $kelasItem->id ? 'selected' : '' }}>
+                                    {{ $kelasItem->kelas }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('id_kelas')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
                 <div class="form-group row text-center mt-2">
                     <div class="col-12">
                         <button class="btn btn-md btn-block btn-primary waves-effect waves-light" type="submit">
